@@ -1,0 +1,184 @@
+PROJECT TITLE:
+Online Food Delivery Analysis
+
+PROJECT DOMAIN:
+Food Tech / Online Food Delivery (Zomato / Swiggy type)
+
+PROJECT ROLE:
+Data Analyst
+
+--------------------------------------------------
+1. DATABASE OVERVIEW
+--------------------------------------------------
+This project uses a relational database consisting of four main tables:
+1. customers
+2. restaurants
+3. delivery_partners
+4. orders
+
+The database is designed to analyze customer behavior, restaurant performance,
+delivery efficiency, and order trends in an online food delivery system.
+
+--------------------------------------------------
+2. TABLE-WISE COLUMN DESCRIPTION (DATA DICTIONARY)
+--------------------------------------------------
+
+TABLE 1: customers
+--------------------------------
+customer_id
+- Description: Unique identifier for each customer
+- Purpose: Used to uniquely track customers and link orders
+
+customer_name
+- Description: Name of the customer
+- Purpose: Identification and reporting
+
+city
+- Description: City where the customer is located
+- Purpose: City-wise customer and demand analysis
+
+signup_date
+- Description: Date when the customer registered on the platform
+- Purpose: New vs existing customer analysis
+
+--------------------------------
+TABLE 2: restaurants
+--------------------------------
+restaurant_id
+- Description: Unique identifier for each restaurant
+- Purpose: Restaurant tracking and performance analysis
+
+restaurant_name
+- Description: Name of the restaurant
+- Purpose: Restaurant-level reporting
+
+city
+- Description: City where the restaurant operates
+- Purpose: City-wise restaurant performance analysis
+
+cuisine
+- Description: Type of food served by the restaurant
+- Purpose: Cuisine demand and popularity analysis
+
+--------------------------------
+TABLE 3: delivery_partners
+--------------------------------
+delivery_partner_id
+- Description: Unique identifier for each delivery partner
+- Purpose: Delivery partner performance tracking
+
+partner_name
+- Description: Name of the delivery partner
+- Purpose: Internal reference and reporting
+
+city
+- Description: City where the delivery partner works
+- Purpose: City-wise delivery capacity analysis
+
+--------------------------------
+TABLE 4: orders
+--------------------------------
+order_id
+- Description: Unique identifier for each order
+- Purpose: Order-level tracking
+
+customer_id
+- Description: ID of the customer who placed the order
+- Purpose: Customer behavior analysis
+
+restaurant_id
+- Description: ID of the restaurant from which order was placed
+- Purpose: Restaurant performance analysis
+
+delivery_partner_id
+- Description: ID of the delivery partner who delivered the order
+- Purpose: Delivery efficiency analysis
+
+order_date
+- Description: Date when the order was placed
+- Purpose: Daily, weekly, and monthly trend analysis
+
+order_time
+- Description: Time when the order was placed
+- Purpose: Peak hour and non-peak hour analysis
+
+delivery_time_minutes
+- Description: Time taken to deliver the order (in minutes)
+- Purpose: Delivery delay and efficiency analysis
+- Note: NULL values indicate cancelled orders or missing data
+
+order_amount
+- Description: Total amount of the order
+- Purpose: Revenue and sales analysis
+
+rating
+- Description: Customer rating (1 to 5)
+- Purpose: Customer satisfaction analysis
+- Note: NULL values indicate no rating provided by customer
+
+order_status
+- Description: Status of the order (Delivered, Cancelled, Delayed)
+- Purpose: Order success and failure analysis
+
+--------------------------------------------------
+3. DATA QUALITY NOTES
+--------------------------------------------------
+- The dataset contains NULL values in delivery_time_minutes and rating columns.
+- NULL values represent real-life scenarios such as cancelled orders or missing feedback.
+- Cancelled orders are identified using the order_status column.
+
+--------------------------------------------------
+4. RELATIONSHIPS BETWEEN TABLES
+--------------------------------------------------
+- customers.customer_id -> orders.customer_id
+- restaurants.restaurant_id -> orders.restaurant_id
+- delivery_partners.delivery_partner_id -> orders.delivery_partner_id
+
+These relationships allow multi-table joins for advanced SQL analysis.
+
+--------------------------------------------------
+END OF NOTES
+--------------------------------------------------
+
+
+
+STEP 2: BUSINESS REQUIREMENTS & KPIs
+
+Business Objectives:
+- Reduce delivery delays
+- Improve customer satisfaction
+- Identify low-performing cities and restaurants
+
+Key Requirements:
+1. Analyze delivery performance
+	- Delivery late kyun ho rahi hai?
+	- Kitne orders delay ho rahe hain?
+
+2. City-wise order and delay analysis
+	- Kaunse city me delivery slow hai?
+	- Kaunse city me orders zyada aa rahe hain?
+
+3. Restaurant performance evaluation
+	- Kaunse restaurants zyada delay kar rahe?
+	- Kaunse restaurants revenue generate kar rahe?
+
+4. Customer rating analysis
+	- Low rating kyun aa rahi hai?
+	- Delivery delay ka rating pe impact hai ya nahi?
+
+5. Order trend analysis
+	-Peak hours kaunse hain?
+	-Weekend vs weekday difference?
+
+6. Cancellation analysis
+	- Orders cancel kyun ho rahe?
+	- Cancellation rate kitni hai?
+
+Defined KPIs:
+- Average delivery time
+- Delivery delay percentage
+- Cancellation rate
+- Average order value
+- Customer satisfaction score
+- Orders per city
+
