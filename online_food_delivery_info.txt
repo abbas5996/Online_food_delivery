@@ -182,3 +182,39 @@ Defined KPIs:
 - Customer satisfaction score
 - Orders per city
 
+
+STEP 3: DATA CLEANING & PREPARATION
+
+1. Performed data audit to check total rows and NULL values.
+2. Identified NULL values in delivery_time_minutes and rating.
+3. Cancelled orders were excluded from delivery performance analysis
+   but included for cancellation rate calculation.
+4. NULL delivery_time_minutes in delivered orders marked for
+   city-wise average replacement (decision documented).
+5. NULL ratings were ignored in average rating calculation
+   to avoid bias.
+6. Checked for duplicates and outliers.
+7. Created a logical filtered dataset using views instead of deleting data.
+
+STEP 4: KPI CALCULATION USING SQL
+
+1. Calculated total number of orders.
+2. Analyzed order status distribution.
+3. Calculated cancellation rate percentage.
+4. Calculated average delivery time excluding cancelled orders.
+5. Calculated delivery delay percentage.
+6. Calculated average order value (AOV).
+7. Calculated average customer satisfaction score.
+8. Performed city-wise order analysis using joins.
+9. Analyzed city-wise average delivery time.
+10. Identified top-performing restaurants based on revenue and delivery time.
+
+
+STEP 5: BUSINESS INSIGHTS & RECOMMENDATIONS
+
+1. Identified city-wise delivery delays.
+2. Found correlation between delivery time and customer ratings.
+3. Analyzed restaurant performance based on revenue and speed.
+4. Identified peak order hours.
+5. Analyzed cancellation trends city-wise.
+6. Provided actionable business recommendations to improve operations.
